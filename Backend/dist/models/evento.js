@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const eventoSchema = new mongoose_1.Schema({
+    nombre: {
+        type: String
+    },
+    descripcion: {
+        type: String
+    },
+    fechaE: {
+        type: String
+    },
+    fechaI: {
+        type: String
+    }
+});
+exports.default = mongoose_1.model('Evento', eventoSchema);

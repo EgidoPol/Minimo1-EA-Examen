@@ -1,0 +1,36 @@
+<h1 style="text-align: center">Formulario para crear un Rol</h1>
+<div class="login">
+  <h2 class="login-header">Nuevo Rol</h2>
+  <form [formGroup]="rolesForm" class="login-container" (ngSubmit)="submitRol()">
+    <input type="nombre" placeholder="Nombre del rol*" formControlName="nombre" />
+    <ng-container
+      *ngIf="!formControls.nombre.valid && formControls.nombre.touched"
+    >
+      <p *ngIf="formControls.nombre.errors.required">Name is required</p>
+    </ng-container>
+
+    <input type="descripcion" placeholder="Descripcion" formControlName="descripcion" />
+    <ng-container
+      *ngIf="formControls.descripcion.touched"
+    ></ng-container>
+
+    <input type="opciones" placeholder="opciones" formControlName="opciones" />
+    <ng-container
+      *ngIf="formControls.descripciontouched"
+    ></ng-container>
+
+    <p>
+      <input type="submit" value="Submit" [disabled]="rolesForm.invalid" />
+    </p>
+
+  </form>
+</div>
+
+<button (click) = "editRol()">Editar Rol</button>
+
+<div class="roles">
+    <app-targeta *ngFor="let rol of roles"
+      [rol]="rol">
+  </app-targeta>
+  </div>
+  
